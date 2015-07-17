@@ -114,6 +114,9 @@ public class World {
 	 * @return String representation of world
 	 */
 	
+	// Problem method. Use StringBuilder .append() method
+	// instead of using toReturn += String.valueOf(int)
+	
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder(_size);

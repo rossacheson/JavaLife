@@ -21,7 +21,7 @@ public class PinningTests {
 		World w = new World(14, 6, 40);
 		World iteration = w.iterate();
 		String result = iteration.toString();
-		assertTrue(result.contains("01234567890123")); // 14 columns in proper
+		assertTrue(result.contains("01234567890123")); // 14 columns in proper order
 		assertFalse(result.contains("012345678901234")); // 15 is too many
 	}
 

@@ -2,6 +2,7 @@ package com.laboon;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.io.*;
 
 public class PinningTests {
 
@@ -14,7 +15,7 @@ public class PinningTests {
 		assertFalse(result.contains("0123456789012")); // 13 is too many
 	}
 
-	// check that iterate() returns a world of the same size as the world it is
+	// check that iterate() returns a world of the same column width as the world it is
 	// iterating
 	@Test
 	public void testWorldIterate() {
@@ -23,6 +24,17 @@ public class PinningTests {
 		String result = iteration.toString();
 		assertTrue(result.contains("01234567890123")); // 14 columns in proper order
 		assertFalse(result.contains("012345678901234")); // 15 is too many
+	}
+	
+	// check that toString returns a full-sized world
+	@Test
+	public void testWorldSize() {
+		World w = new World(5, 2, 15);
+		String result = w.toString();
+		// World _size is 5, but each line has 2 extra characters,
+		// and there are _size + 1 lines, so 7*6 characters
+		// plus some new line characters, hence >= 42
+		assertTrue(result.length() >= 42); 
 	}
 
 	// check that isAlive shows true for a cell initialized as alive

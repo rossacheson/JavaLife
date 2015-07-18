@@ -119,7 +119,7 @@ public class World {
 	
 	public String toString() {
 		
-		StringBuilder sb = new StringBuilder(_size);
+		StringBuilder sb = new StringBuilder((_size + 1)*(_size +2));
 		sb.append("  ");
 		for (int j= 0; j < _size; j++) {
 			sb.append(j % 10);
